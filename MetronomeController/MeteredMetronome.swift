@@ -22,17 +22,15 @@ public func metronome(
     performingOnUpbeat onUpbeat: @escaping MeteredAction
 ) -> Timeline
 {
-    let timeline = Timeline()
-    
-    offsetsAndActions(
-        meter: meter,
-        tempo: tempo,
-        performingOnDownbeat: onDownbeat,
-        performingOnUpbeat: onUpbeat,
-        looping: true
-    ).forEach { offset, action in timeline.add(action, at: offset) }
-    
-    return timeline
+    return Timeline(
+        actions: offsetsAndActions(
+            meter: meter,
+            tempo: tempo,
+            performingOnDownbeat: onDownbeat,
+            performingOnUpbeat: onUpbeat,
+            looping: true
+        )
+    )
 }
 
 /// - returns: `Timeline` capable of performing the given `onDownbeat` and `onUpbeat` closures
@@ -44,19 +42,17 @@ public func metronome(
     performingOnUpbeat onUpbeat: @escaping MeteredAction
 ) -> Timeline
 {
-    let timeline = Timeline()
-    
-    meters.flatMap { meter in
-        return offsetsAndActions(
-            meter: meter,
-            tempo: tempo,
-            performingOnDownbeat: onDownbeat,
-            performingOnUpbeat: onUpbeat,
-            looping: false
-        )
-    }.forEach { offset, action in timeline.add(action, at: offset) }
-    
-    return timeline
+    return Timeline(
+        actions: meters.flatMap { meter in
+            return offsetsAndActions(
+                meter: meter,
+                tempo: tempo,
+                performingOnDownbeat: onDownbeat,
+                performingOnUpbeat: onUpbeat,
+                looping: false
+            )
+        }
+    )
 }
 
 private func offsetsAndActions(

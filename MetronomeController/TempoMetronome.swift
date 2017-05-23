@@ -13,9 +13,9 @@ import Timeline
 public func metronome(tempo: Tempo, performing closure: @escaping Timeline.Action.Body)
     -> Timeline
 {
-    let interval = tempo.durationOfBeat
-    let action = Timeline.Action(kind: .looping(interval: interval, status: .source), body: closure)
-    let timeline = Timeline()
-    timeline.add(action, at: 0)
-    return timeline
+    let action = Timeline.Action(
+        kind: .looping(interval: tempo.durationOfBeat, status: .source),
+        body: closure
+    )
+    return Timeline(actions: [(0, action)])
 }
