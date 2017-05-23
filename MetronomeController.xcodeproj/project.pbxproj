@@ -13,10 +13,20 @@
 		075C30631EB17E84008DB1D6 /* Collections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 075C30601EB17E84008DB1D6 /* Collections.framework */; };
 		075C30641EB17E84008DB1D6 /* Rhythm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 075C30611EB17E84008DB1D6 /* Rhythm.framework */; };
 		075C30651EB17E8A008DB1D6 /* MetronomeController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72612C7F2BE00CCCF668301E /* MetronomeController.framework */; };
-		0771A5ED1ED4CFEF00733CFF /* TempoMetronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771A5EC1ED4CFEF00733CFF /* TempoMetronome.swift */; };
-		0771A5EE1ED4CFEF00733CFF /* TempoMetronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771A5EC1ED4CFEF00733CFF /* TempoMetronome.swift */; };
-		0771A5F01ED4D11A00733CFF /* MeteredMetronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771A5EF1ED4D11A00733CFF /* MeteredMetronome.swift */; };
-		0771A5F11ED4D11A00733CFF /* MeteredMetronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771A5EF1ED4D11A00733CFF /* MeteredMetronome.swift */; };
+		0771A5ED1ED4CFEF00733CFF /* Timeline+TempoMetronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771A5EC1ED4CFEF00733CFF /* Timeline+TempoMetronome.swift */; };
+		0771A5EE1ED4CFEF00733CFF /* Timeline+TempoMetronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771A5EC1ED4CFEF00733CFF /* Timeline+TempoMetronome.swift */; };
+		0771A5F01ED4D11A00733CFF /* Timeline+MeteredMetronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771A5EF1ED4D11A00733CFF /* Timeline+MeteredMetronome.swift */; };
+		0771A5F11ED4D11A00733CFF /* Timeline+MeteredMetronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771A5EF1ED4D11A00733CFF /* Timeline+MeteredMetronome.swift */; };
+		0771A5F31ED4EF3E00733CFF /* Timeline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0771A5F21ED4EF3E00733CFF /* Timeline.framework */; };
+		0771A5F51ED4EF4000733CFF /* Timeline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0771A5F21ED4EF3E00733CFF /* Timeline.framework */; };
+		0771A5FA1ED4EF5C00733CFF /* ArithmeticTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0771A5F61ED4EF5C00733CFF /* ArithmeticTools.framework */; };
+		0771A5FB1ED4EF5C00733CFF /* Collections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0771A5F71ED4EF5C00733CFF /* Collections.framework */; };
+		0771A5FC1ED4EF5C00733CFF /* Rhythm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0771A5F81ED4EF5C00733CFF /* Rhythm.framework */; };
+		0771A5FD1ED4EF5C00733CFF /* Timeline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0771A5F91ED4EF5C00733CFF /* Timeline.framework */; };
+		0771A6011ED4EF6900733CFF /* ArithmeticTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0771A5F61ED4EF5C00733CFF /* ArithmeticTools.framework */; };
+		0771A6021ED4EF6900733CFF /* Collections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0771A5F71ED4EF5C00733CFF /* Collections.framework */; };
+		0771A6031ED4EF6900733CFF /* Rhythm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0771A5F81ED4EF5C00733CFF /* Rhythm.framework */; };
+		0771A6041ED4EF6900733CFF /* Timeline.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0771A5F91ED4EF5C00733CFF /* Timeline.framework */; };
 		270DD65114F5940C1E7D2118 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE74CE232426E19447C77ADA /* Cocoa.framework */; };
 		9337DC3C74524A5E4C76B2BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 532FDBC049DE6F77D5A104B2 /* Foundation.framework */; };
 		981C0D8714FD92C586A0D3AE /* MetronomeController.h in Headers */ = {isa = PBXBuildFile; fileRef = D7AD33E9FA2783075962E01A /* MetronomeController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -47,8 +57,13 @@
 		075C305F1EB17E84008DB1D6 /* ArithmeticTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArithmeticTools.framework; path = Carthage/Build/iOS/ArithmeticTools.framework; sourceTree = "<group>"; };
 		075C30601EB17E84008DB1D6 /* Collections.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collections.framework; path = Carthage/Build/iOS/Collections.framework; sourceTree = "<group>"; };
 		075C30611EB17E84008DB1D6 /* Rhythm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rhythm.framework; path = Carthage/Build/iOS/Rhythm.framework; sourceTree = "<group>"; };
-		0771A5EC1ED4CFEF00733CFF /* TempoMetronome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TempoMetronome.swift; path = MetronomeController/TempoMetronome.swift; sourceTree = "<group>"; };
-		0771A5EF1ED4D11A00733CFF /* MeteredMetronome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeteredMetronome.swift; path = MetronomeController/MeteredMetronome.swift; sourceTree = "<group>"; };
+		0771A5EC1ED4CFEF00733CFF /* Timeline+TempoMetronome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Timeline+TempoMetronome.swift"; path = "MetronomeController/Timeline+TempoMetronome.swift"; sourceTree = "<group>"; };
+		0771A5EF1ED4D11A00733CFF /* Timeline+MeteredMetronome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Timeline+MeteredMetronome.swift"; path = "MetronomeController/Timeline+MeteredMetronome.swift"; sourceTree = "<group>"; };
+		0771A5F21ED4EF3E00733CFF /* Timeline.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Timeline.framework; path = Carthage/Build/iOS/Timeline.framework; sourceTree = "<group>"; };
+		0771A5F61ED4EF5C00733CFF /* ArithmeticTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArithmeticTools.framework; path = Carthage/Build/Mac/ArithmeticTools.framework; sourceTree = "<group>"; };
+		0771A5F71ED4EF5C00733CFF /* Collections.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collections.framework; path = Carthage/Build/Mac/Collections.framework; sourceTree = "<group>"; };
+		0771A5F81ED4EF5C00733CFF /* Rhythm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rhythm.framework; path = Carthage/Build/Mac/Rhythm.framework; sourceTree = "<group>"; };
+		0771A5F91ED4EF5C00733CFF /* Timeline.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Timeline.framework; path = Carthage/Build/Mac/Timeline.framework; sourceTree = "<group>"; };
 		532FDBC049DE6F77D5A104B2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		72612C7F2BE00CCCF668301E /* MetronomeController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MetronomeController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		878DDBEF6327DBB853C16824 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = MetronomeController/Info.plist; sourceTree = "<group>"; };
@@ -65,7 +80,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0771A5FB1ED4EF5C00733CFF /* Collections.framework in Frameworks */,
 				270DD65114F5940C1E7D2118 /* Cocoa.framework in Frameworks */,
+				0771A5FA1ED4EF5C00733CFF /* ArithmeticTools.framework in Frameworks */,
+				0771A5FD1ED4EF5C00733CFF /* Timeline.framework in Frameworks */,
+				0771A5FC1ED4EF5C00733CFF /* Rhythm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +97,7 @@
 				075C30631EB17E84008DB1D6 /* Collections.framework in Frameworks */,
 				075C30641EB17E84008DB1D6 /* Rhythm.framework in Frameworks */,
 				075C30651EB17E8A008DB1D6 /* MetronomeController.framework in Frameworks */,
+				0771A5F51ED4EF4000733CFF /* Timeline.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9337DC3C74524A5E4C76B2BF /* Foundation.framework in Frameworks */,
+				0771A5F31ED4EF3E00733CFF /* Timeline.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +115,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3BED75A5C49F5E40BD4C4DD /* Cocoa.framework in Frameworks */,
+				0771A6011ED4EF6900733CFF /* ArithmeticTools.framework in Frameworks */,
+				0771A6021ED4EF6900733CFF /* Collections.framework in Frameworks */,
+				0771A6031ED4EF6900733CFF /* Rhythm.framework in Frameworks */,
+				0771A6041ED4EF6900733CFF /* Timeline.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +164,10 @@
 		A83AA498BF36715954C43C6D /* OS X */ = {
 			isa = PBXGroup;
 			children = (
+				0771A5F61ED4EF5C00733CFF /* ArithmeticTools.framework */,
+				0771A5F71ED4EF5C00733CFF /* Collections.framework */,
+				0771A5F81ED4EF5C00733CFF /* Rhythm.framework */,
+				0771A5F91ED4EF5C00733CFF /* Timeline.framework */,
 				EE74CE232426E19447C77ADA /* Cocoa.framework */,
 			);
 			name = "OS X";
@@ -159,8 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				14F98BB1CE244FEEEA8095B2 /* Supporting Files */,
-				0771A5EF1ED4D11A00733CFF /* MeteredMetronome.swift */,
-				0771A5EC1ED4CFEF00733CFF /* TempoMetronome.swift */,
+				0771A5EF1ED4D11A00733CFF /* Timeline+MeteredMetronome.swift */,
+				0771A5EC1ED4CFEF00733CFF /* Timeline+TempoMetronome.swift */,
 			);
 			name = MetronomeController;
 			sourceTree = "<group>";
@@ -168,9 +197,6 @@
 		DA2E08FBC4A61A25D045F0BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				075C305F1EB17E84008DB1D6 /* ArithmeticTools.framework */,
-				075C30601EB17E84008DB1D6 /* Collections.framework */,
-				075C30611EB17E84008DB1D6 /* Rhythm.framework */,
 				DFA926D6C557837A98BDA2B7 /* iOS */,
 				A83AA498BF36715954C43C6D /* OS X */,
 			);
@@ -180,6 +206,10 @@
 		DFA926D6C557837A98BDA2B7 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				0771A5F21ED4EF3E00733CFF /* Timeline.framework */,
+				075C305F1EB17E84008DB1D6 /* ArithmeticTools.framework */,
+				075C30601EB17E84008DB1D6 /* Collections.framework */,
+				075C30611EB17E84008DB1D6 /* Rhythm.framework */,
 				532FDBC049DE6F77D5A104B2 /* Foundation.framework */,
 			);
 			name = iOS;
@@ -330,6 +360,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/ArithmeticTools.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Collections.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Rhythm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Timeline.framework",
 			);
 			outputPaths = (
 			);
@@ -346,6 +377,7 @@
 				"$(SRCROOT)/Carthage/Build/Mac/ArithmeticTools.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/Collections.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/Rhythm.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/Timeline.framework",
 			);
 			outputPaths = (
 			);
@@ -360,8 +392,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0771A5EE1ED4CFEF00733CFF /* TempoMetronome.swift in Sources */,
-				0771A5F11ED4D11A00733CFF /* MeteredMetronome.swift in Sources */,
+				0771A5EE1ED4CFEF00733CFF /* Timeline+TempoMetronome.swift in Sources */,
+				0771A5F11ED4D11A00733CFF /* Timeline+MeteredMetronome.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,8 +409,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0771A5ED1ED4CFEF00733CFF /* TempoMetronome.swift in Sources */,
-				0771A5F01ED4D11A00733CFF /* MeteredMetronome.swift in Sources */,
+				0771A5ED1ED4CFEF00733CFF /* Timeline+TempoMetronome.swift in Sources */,
+				0771A5F01ED4D11A00733CFF /* Timeline+MeteredMetronome.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,7 +453,10 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = MetronomeController/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -448,7 +483,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/Mac";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = MetronomeControllerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks $(SRCROOT)/Carthage/Build/Mac";
@@ -476,7 +514,11 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/Mac";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = MetronomeController/Info.plist;
@@ -546,7 +588,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/Mac";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = MetronomeControllerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks $(SRCROOT)/Carthage/Build/Mac";
@@ -597,7 +642,11 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/Mac";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = MetronomeController/Info.plist;
@@ -689,7 +738,10 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = MetronomeController/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
