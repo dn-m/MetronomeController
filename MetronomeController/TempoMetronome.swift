@@ -10,10 +10,8 @@ import Rhythm
 import Timeline
 
 /// - returns: `Timeline` capable of performing the given `closure` at the given `tempo`.
-public func metronome(
-    tempo: Tempo,
-    performing closure: @escaping Timeline.Action.Body
-) -> Timeline
+public func metronome(tempo: Tempo, performing closure: @escaping Timeline.Action.Body)
+    -> Timeline
 {
     let interval = tempo.durationOfBeat
     let action = Timeline.Action(kind: .looping(interval: interval, status: .source), body: closure)

@@ -9,6 +9,8 @@
 import Rhythm
 import Timeline
 
+/// Closure that exposes the `Meter`, `BeatContext`, and `Tempo` of a single beat within a
+/// metronome timeline.
 public typealias MeteredAction = (Meter, BeatContext, Tempo) -> ()
 
 /// - returns: `Timeline` capable of performing the given `onDownbeat` and `onUpbeat` closures
@@ -65,19 +67,22 @@ private func offsetsAndActions(
     looping: Bool
 ) -> [(Seconds, Timeline.Action)]
 {
+
+    func closure(position: Int) -> MeteredAction {
+        return position == 0 ? onDownbeat : onUpbeat
+    }
+    
+    let kind: Timeline.Action.Kind = looping
+        ? .looping(interval: meter.duration(at: tempo), status: .source)
+        : .atomic
     
     return zip(meter.offsets(tempo: tempo), (0 ..< meter.numerator)).map { offset, position in
         
         let beatContext = BeatContext(subdivision: meter.denominator, position: position)
-        let closure = position == 0 ? onDownbeat : onUpbeat
-        
-        let kind: Timeline.Action.Kind = looping
-            ? .looping(interval: meter.duration(at: tempo), status: .source)
-            : .atomic
-        
+
         let action = Timeline.Action(
             kind: kind,
-            body: { closure(meter, beatContext, tempo) }
+            body: { closure(position: position)(meter, beatContext, tempo) }
         )
         
         return (offset, action)
