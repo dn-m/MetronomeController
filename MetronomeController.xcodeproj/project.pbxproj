@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		075C305A1EB16464008DB1D6 /* MetronomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075C30591EB16464008DB1D6 /* MetronomeController.swift */; };
 		075C305B1EB16464008DB1D6 /* MetronomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075C30591EB16464008DB1D6 /* MetronomeController.swift */; };
+		075C305D1EB17BF4008DB1D6 /* MetronomeControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075C305C1EB17BF4008DB1D6 /* MetronomeControllerTests.swift */; };
+		075C305E1EB17BF4008DB1D6 /* MetronomeControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075C305C1EB17BF4008DB1D6 /* MetronomeControllerTests.swift */; };
+		075C30621EB17E84008DB1D6 /* ArithmeticTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 075C305F1EB17E84008DB1D6 /* ArithmeticTools.framework */; };
+		075C30631EB17E84008DB1D6 /* Collections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 075C30601EB17E84008DB1D6 /* Collections.framework */; };
+		075C30641EB17E84008DB1D6 /* Rhythm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 075C30611EB17E84008DB1D6 /* Rhythm.framework */; };
+		075C30651EB17E8A008DB1D6 /* MetronomeController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72612C7F2BE00CCCF668301E /* MetronomeController.framework */; };
 		270DD65114F5940C1E7D2118 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE74CE232426E19447C77ADA /* Cocoa.framework */; };
 		9337DC3C74524A5E4C76B2BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 532FDBC049DE6F77D5A104B2 /* Foundation.framework */; };
 		981C0D8714FD92C586A0D3AE /* MetronomeController.h in Headers */ = {isa = PBXBuildFile; fileRef = D7AD33E9FA2783075962E01A /* MetronomeController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -36,6 +42,10 @@
 
 /* Begin PBXFileReference section */
 		075C30591EB16464008DB1D6 /* MetronomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetronomeController.swift; path = MetronomeController/MetronomeController.swift; sourceTree = "<group>"; };
+		075C305C1EB17BF4008DB1D6 /* MetronomeControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetronomeControllerTests.swift; path = MetronomeControllerTests/MetronomeControllerTests.swift; sourceTree = "<group>"; };
+		075C305F1EB17E84008DB1D6 /* ArithmeticTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArithmeticTools.framework; path = Carthage/Build/iOS/ArithmeticTools.framework; sourceTree = "<group>"; };
+		075C30601EB17E84008DB1D6 /* Collections.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collections.framework; path = Carthage/Build/iOS/Collections.framework; sourceTree = "<group>"; };
+		075C30611EB17E84008DB1D6 /* Rhythm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rhythm.framework; path = Carthage/Build/iOS/Rhythm.framework; sourceTree = "<group>"; };
 		532FDBC049DE6F77D5A104B2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		72612C7F2BE00CCCF668301E /* MetronomeController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MetronomeController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		878DDBEF6327DBB853C16824 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = MetronomeController/Info.plist; sourceTree = "<group>"; };
@@ -61,6 +71,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0B6EDB3BD152387E5013F4C /* Foundation.framework in Frameworks */,
+				075C30621EB17E84008DB1D6 /* ArithmeticTools.framework in Frameworks */,
+				075C30631EB17E84008DB1D6 /* Collections.framework in Frameworks */,
+				075C30641EB17E84008DB1D6 /* Rhythm.framework in Frameworks */,
+				075C30651EB17E8A008DB1D6 /* MetronomeController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				2CF89D8C12A5782F53B2ACDF /* Supporting Files */,
+				075C305C1EB17BF4008DB1D6 /* MetronomeControllerTests.swift */,
 			);
 			name = MetronomeControllerTests;
 			sourceTree = "<group>";
@@ -149,6 +164,9 @@
 		DA2E08FBC4A61A25D045F0BB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				075C305F1EB17E84008DB1D6 /* ArithmeticTools.framework */,
+				075C30601EB17E84008DB1D6 /* Collections.framework */,
+				075C30611EB17E84008DB1D6 /* Rhythm.framework */,
 				DFA926D6C557837A98BDA2B7 /* iOS */,
 				A83AA498BF36715954C43C6D /* OS X */,
 			);
@@ -267,6 +285,12 @@
 					6C660C3678720B95A2BEED45 = {
 						LastSwiftMigration = 0830;
 					};
+					773837520A79FCE72C922684 = {
+						LastSwiftMigration = 0830;
+					};
+					7E6339B196D8D63148BAD38B = {
+						LastSwiftMigration = 0830;
+					};
 					D010AF6D2613E68B846D9512 = {
 						LastSwiftMigration = 0830;
 					};
@@ -308,7 +332,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
-			showEnvVarsInLog = 1;
 		};
 		E33D9618C025E72EF818027B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -325,7 +348,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
-			showEnvVarsInLog = 1;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -342,6 +364,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				075C305D1EB17BF4008DB1D6 /* MetronomeControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				075C305E1EB17BF4008DB1D6 /* MetronomeControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +438,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -425,6 +450,8 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -509,6 +536,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -520,6 +548,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -527,10 +556,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = MetronomeControllerTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
@@ -538,6 +571,8 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -579,10 +614,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = MetronomeControllerTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
@@ -590,6 +629,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
