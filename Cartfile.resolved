@@ -1,3 +1,4 @@
 github "dn-m/Collections" "1.17"
 github "dn-m/ArithmeticTools" "0.12.6"
-github "dn-m/Rhythm" "2047a6443ebf0f4bac416e540dcdecd3134e2ddb"
+github "dn-m/Rhythm" "0.5.3"
+github "dn-m/Timeline" "0.5.1"

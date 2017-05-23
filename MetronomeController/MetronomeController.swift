@@ -8,81 +8,93 @@
 
 import Collections
 import Rhythm
+import Timeline
 
+// MARK: - Tempo Metronome
 
-// Metronome for tempo
-// Metronome for Meter
-// Metronome for metrical structure
+/// - returns: Looping `Timeline.Action` to perform the given `closure` at the given `tempo`.
+public func metronomeTimeline(
+    tempo: Tempo,
+    performing closure: @escaping Timeline.Action.Body
+) -> Timeline
+{
+    let interval = tempo.durationOfBeat
+    let action = Timeline.Action(kind: .looping(interval: interval, status: .source), body: closure)
+    let timeline = Timeline()
+    timeline.add(action, at: 0)
+    return timeline
+}
 
-public class MetronomeController {
+public typealias MeteredAction = (Meter, BeatContext, Tempo) -> ()
+
+/// - returns: Array of looping `Timeline.Action` objects
+public func metronomeActions(
+    meter: Meter,
+    tempo: Tempo,
+    performingOnDownbeat onDownbeat: @escaping MeteredAction,
+    performingOnUpbeat onUpbeat: @escaping MeteredAction
+) -> Timeline
+{
+    let timeline = Timeline()
+
+    metronomeActions(
+        meter: meter,
+        tempo: tempo,
+        performingOnDownbeat: onDownbeat,
+        performingOnUpbeat: onUpbeat,
+        looping: true
+    ).forEach { offset, action in timeline.add(action, at: offset) }
     
-    public typealias Action = () -> ()
+    return timeline
+}
+
+public func metronomeActions(
+    meters: [Meter],
+    tempo: Tempo,
+    performingOnDownbeat onDownbeat: @escaping MeteredAction,
+    performingOnUpbeat onUpbeat: @escaping MeteredAction
+) -> Timeline
+{
+    let timeline = Timeline()
     
-    public enum Level {
-        case upbeat
-        case downbeat
-    }
+    meters.flatMap { meter in
+        return metronomeActions(
+            meter: meter,
+            tempo: tempo,
+            performingOnDownbeat: onDownbeat,
+            performingOnUpbeat: onUpbeat,
+            looping: false
+        )
+    }.forEach { offset, action in timeline.add(action, at: offset) }
     
-    public var actionByOffset: [(Double, Action)] {
+    return timeline
+}
+
+/// - returns: Array of looping `Timeline.Action` objects
+private func metronomeActions(
+    meter: Meter,
+    tempo: Tempo,
+    performingOnDownbeat onDownbeat: @escaping MeteredAction,
+    performingOnUpbeat onUpbeat: @escaping MeteredAction,
+    looping: Bool
+) -> [(Seconds, Timeline.Action)]
+{
+    
+    /// Create a tuple of offset in seconds and actions for each beat
+    return zip(meter.offsets(tempo: tempo), (0 ..< meter.numerator)).map { offset, position in
         
-        typealias Result = [(Double, Action)]
+        let beatContext = BeatContext(subdivision: meter.denominator, position: position)
+        let closure = position == 0 ? onDownbeat : onUpbeat
         
-        func accumulate(meters: [Meter], accumOffset: Double, result: Result) -> Result {
-            
-            guard let (meter, tail) = meters.destructured else {
-                return result
-            }
-            
-            let offsets = meter.offsets(tempo: tempo)
-            let actions = self.actions(for: meter)
-            
-            let actionByOffset = zip(offsets, actions).map { localOffset, action in
-                (accumOffset + localOffset, action)
-            }
-            
-            let accumOffset = accumOffset + meter.duration(at: tempo)
-            let result = result + actionByOffset
-            return accumulate(meters: tail, accumOffset: accumOffset, result: result)
-        }
+        let kind: Timeline.Action.Kind = looping
+            ? .looping(interval: meter.duration(at: tempo), status: .source)
+            : .atomic
         
-        return accumulate(meters: meters, accumOffset: 0, result: [])
-    }
-    
-    private let meters: [Meter]
-    
-    // TODO: decouple model tempo from playback tempo
-    private let tempo: Tempo
-    
-    // TODO: Create hierarchical structure of meter
-    
-    private let downbeatAction: (Meter, Int, Tempo) -> ()
-    private let upbeatAction: (Meter, Int, Tempo) -> ()
-    
-    // MARK: - Initializers
-    
-    /// Creates a `MetronomeController` with the given `meters`, `tempo`, and the `downbeat` 
-    /// and `upbeat`
-    public init(
-        meters: [Meter],
-        tempo: Tempo,
-        downbeat: @escaping (Meter, Int, Tempo) -> (),
-        upbeat: @escaping (Meter, Int, Tempo) -> ()
-    )
-    {
-        self.meters = meters
-        self.tempo = tempo
-        self.downbeatAction = downbeat
-        self.upbeatAction = upbeat
-    }
-    
-    func actions(for meter: Meter) -> [Action] {
+        let action = Timeline.Action(
+            kind: kind,
+            body: { closure(meter, beatContext, tempo) }
+        )
         
-        let (_, upbeats) = Array(0 ..< meter.numerator).destructured!
-        
-        let downbeat = { self.downbeatAction(meter, 1, self.tempo) }
-        
-        return downbeat + upbeats.map { beat in
-            { self.upbeatAction(meter, beat + 1, self.tempo) }
-        }
+        return (offset, action)
     }
 }

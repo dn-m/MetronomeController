@@ -14,11 +14,5 @@ class MetronomeControllerTests: XCTestCase {
     
     func testInit() {
         
-        let _ = MetronomeController(
-            meters: [],
-            tempo: Tempo(72),
-            downbeat: { _ in },
-            upbeat: { _ in }
-        )
     }
 }
