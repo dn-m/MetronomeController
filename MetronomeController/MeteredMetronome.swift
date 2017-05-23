@@ -1,29 +1,13 @@
 //
-//  MetronomeController.swift
+//  MeteredMetronome.swift
 //  MetronomeController
 //
-//  Created by James Bean on 4/26/17.
+//  Created by James Bean on 5/23/17.
 //
 //
 
-import Collections
 import Rhythm
 import Timeline
-
-// MARK: - Tempo Metronome
-
-/// - returns: `Timeline` capable of performing the given `closure` at the given `tempo`.
-public func metronome(
-    tempo: Tempo,
-    performing closure: @escaping Timeline.Action.Body
-) -> Timeline
-{
-    let interval = tempo.durationOfBeat
-    let action = Timeline.Action(kind: .looping(interval: interval, status: .source), body: closure)
-    let timeline = Timeline()
-    timeline.add(action, at: 0)
-    return timeline
-}
 
 public typealias MeteredAction = (Meter, BeatContext, Tempo) -> ()
 
@@ -37,7 +21,7 @@ public func metronome(
 ) -> Timeline
 {
     let timeline = Timeline()
-
+    
     offsetsAndActions(
         meter: meter,
         tempo: tempo,

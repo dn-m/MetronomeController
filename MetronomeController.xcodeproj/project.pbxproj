@@ -7,14 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		075C305A1EB16464008DB1D6 /* MetronomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075C30591EB16464008DB1D6 /* MetronomeController.swift */; };
-		075C305B1EB16464008DB1D6 /* MetronomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075C30591EB16464008DB1D6 /* MetronomeController.swift */; };
 		075C305D1EB17BF4008DB1D6 /* MetronomeControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075C305C1EB17BF4008DB1D6 /* MetronomeControllerTests.swift */; };
 		075C305E1EB17BF4008DB1D6 /* MetronomeControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 075C305C1EB17BF4008DB1D6 /* MetronomeControllerTests.swift */; };
 		075C30621EB17E84008DB1D6 /* ArithmeticTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 075C305F1EB17E84008DB1D6 /* ArithmeticTools.framework */; };
 		075C30631EB17E84008DB1D6 /* Collections.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 075C30601EB17E84008DB1D6 /* Collections.framework */; };
 		075C30641EB17E84008DB1D6 /* Rhythm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 075C30611EB17E84008DB1D6 /* Rhythm.framework */; };
 		075C30651EB17E8A008DB1D6 /* MetronomeController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72612C7F2BE00CCCF668301E /* MetronomeController.framework */; };
+		0771A5ED1ED4CFEF00733CFF /* TempoMetronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771A5EC1ED4CFEF00733CFF /* TempoMetronome.swift */; };
+		0771A5EE1ED4CFEF00733CFF /* TempoMetronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771A5EC1ED4CFEF00733CFF /* TempoMetronome.swift */; };
+		0771A5F01ED4D11A00733CFF /* MeteredMetronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771A5EF1ED4D11A00733CFF /* MeteredMetronome.swift */; };
+		0771A5F11ED4D11A00733CFF /* MeteredMetronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0771A5EF1ED4D11A00733CFF /* MeteredMetronome.swift */; };
 		270DD65114F5940C1E7D2118 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE74CE232426E19447C77ADA /* Cocoa.framework */; };
 		9337DC3C74524A5E4C76B2BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 532FDBC049DE6F77D5A104B2 /* Foundation.framework */; };
 		981C0D8714FD92C586A0D3AE /* MetronomeController.h in Headers */ = {isa = PBXBuildFile; fileRef = D7AD33E9FA2783075962E01A /* MetronomeController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -41,11 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		075C30591EB16464008DB1D6 /* MetronomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetronomeController.swift; path = MetronomeController/MetronomeController.swift; sourceTree = "<group>"; };
 		075C305C1EB17BF4008DB1D6 /* MetronomeControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetronomeControllerTests.swift; path = MetronomeControllerTests/MetronomeControllerTests.swift; sourceTree = "<group>"; };
 		075C305F1EB17E84008DB1D6 /* ArithmeticTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ArithmeticTools.framework; path = Carthage/Build/iOS/ArithmeticTools.framework; sourceTree = "<group>"; };
 		075C30601EB17E84008DB1D6 /* Collections.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Collections.framework; path = Carthage/Build/iOS/Collections.framework; sourceTree = "<group>"; };
 		075C30611EB17E84008DB1D6 /* Rhythm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Rhythm.framework; path = Carthage/Build/iOS/Rhythm.framework; sourceTree = "<group>"; };
+		0771A5EC1ED4CFEF00733CFF /* TempoMetronome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TempoMetronome.swift; path = MetronomeController/TempoMetronome.swift; sourceTree = "<group>"; };
+		0771A5EF1ED4D11A00733CFF /* MeteredMetronome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MeteredMetronome.swift; path = MetronomeController/MeteredMetronome.swift; sourceTree = "<group>"; };
 		532FDBC049DE6F77D5A104B2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		72612C7F2BE00CCCF668301E /* MetronomeController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MetronomeController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		878DDBEF6327DBB853C16824 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = Info.plist; path = MetronomeController/Info.plist; sourceTree = "<group>"; };
@@ -156,7 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				14F98BB1CE244FEEEA8095B2 /* Supporting Files */,
-				075C30591EB16464008DB1D6 /* MetronomeController.swift */,
+				0771A5EF1ED4D11A00733CFF /* MeteredMetronome.swift */,
+				0771A5EC1ED4CFEF00733CFF /* TempoMetronome.swift */,
 			);
 			name = MetronomeController;
 			sourceTree = "<group>";
@@ -356,7 +360,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				075C305B1EB16464008DB1D6 /* MetronomeController.swift in Sources */,
+				0771A5EE1ED4CFEF00733CFF /* TempoMetronome.swift in Sources */,
+				0771A5F11ED4D11A00733CFF /* MeteredMetronome.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +377,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				075C305A1EB16464008DB1D6 /* MetronomeController.swift in Sources */,
+				0771A5ED1ED4CFEF00733CFF /* TempoMetronome.swift in Sources */,
+				0771A5F01ED4D11A00733CFF /* MeteredMetronome.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
