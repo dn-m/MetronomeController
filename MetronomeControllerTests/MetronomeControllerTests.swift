@@ -27,4 +27,25 @@ class MetronomeControllerTests: XCTestCase {
         )
         print(metronome)
     }
+    
+    func testAccelerando() {
+
+        let unfulfilledExpectation = expectation(description: "Accelerando")
+        
+        let meters = (0..<4).map { _ in Meter(4,4) }
+        let interp = Tempo.Interpolation(start: Tempo(30), end: Tempo(480), duration: 16/>4)
+        let stratum = Tempo.Stratum(tempi: [.zero: interp])
+        let structure = Meter.Structure(meters: meters, tempi: stratum)
+        
+        let metronome = Timeline.metronome(
+            structure: structure,
+            performingOnDownbeat: { _ in NSBeep() },
+            performingOnUpbeat: { _ in NSBeep() }
+        )
+        
+        metronome.completion = { unfulfilledExpectation.fulfill() }
+        metronome.start()
+        
+        waitForExpectations(timeout: 20)
+    }
 }
