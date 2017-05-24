@@ -37,6 +37,8 @@ extension Timeline {
     
     /// - returns: `Timeline` capable of performing the given `onDownbeat` and `onUpbeat` closures
     /// for the given `meters` at the given `tempo`.
+    ///
+    /// - TODO: Update to Meter.Structure, incorporate Tempo.Interpolation.
     public static func metronome(
         meters: [Meter],
         tempo: Tempo,
@@ -55,6 +57,17 @@ extension Timeline {
                 )
             }
         )
+    }
+
+    /// - warning: Not yet implemented
+    public static func metronome(
+        meters: Meter.Structure,
+        performingOnDownbeat onDownbeat: @escaping MeteredAction,
+        performingOnUpbeat onUpbeat: @escaping MeteredAction
+    ) -> Timeline
+    {
+        // need to calculate tempo interpolations for correct offsets
+        fatalError("Not yet implemented")
     }
     
     private static func offsetsAndActions(
@@ -86,6 +99,4 @@ extension Timeline {
             return (offset, action)
         }
     }
-    
 }
-
