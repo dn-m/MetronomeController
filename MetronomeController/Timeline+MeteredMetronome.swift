@@ -110,6 +110,7 @@ extension Timeline {
         
         let timeline = Timeline(identifier: "Metronome", actions: actions)
         return timeline
+        
     }
     
     // 1: calculate offsets of all beats (as tempo interpolations may span >1 measure)
