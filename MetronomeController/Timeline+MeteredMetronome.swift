@@ -89,13 +89,9 @@ extension Timeline {
             
             // Prepare Action
             let closure: MetronomeInfoCallback = beatOffset == .zero ? onDownbeat : onUpbeat
-            
-            let tempoContext = structure.tempoContext(at: metricalOffset)
-            
-            let beatContext = BeatContext(offset: beatOffset, interpolation: structure.interpolation)
-            
-            //let beatContext = BeatContext(metricalOffset: beatOffset)
-            
+            let interpolation = structure.interpolation(containing: metricalOffset)
+            let beatContext = BeatContext(offset: metricalOffset, interpolation: interpolation)
+
             let action = Timeline.Action(
                 kind: .atomic,
                 body: { closure(meter, beatContext) }
@@ -124,8 +120,4 @@ extension Timeline {
         let timeline = Timeline(identifier: "Metronome", actions: actions)
         return timeline
     }
-    
-    // 1: calculate offsets of all beats (as tempo interpolations may span >1 measure)
-    // 2: flatMap all of the beat positions [0,1,2,3,0,1,2,3,4,0,1,0,1,2,3]
-
 }

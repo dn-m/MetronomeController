@@ -33,23 +33,23 @@ class MetronomeControllerTests: XCTestCase {
         let unfulfilledExpectation = expectation(description: "Accelerando")
         
         let meters = (0..<16).map { _ in Meter(4,4) }
-        let interp = Tempo.Interpolation(start: Tempo(30), end: Tempo(480), duration: 48/>4)
+        let interp = Tempo.Interpolation(start: Tempo(30), end: Tempo(480), duration: 64/>4)
         let stratum = Tempo.Stratum(tempi: [.zero: interp])
         let structure = Meter.Structure(meters: meters, tempi: stratum)
         
         let metronome = Timeline.metronome(
             structure: structure,
-            performingOnDownbeat: { meter, beatContext, tempoContext in
-                print("meter: \(meter); beatContext: \(beatContext); tempoContext: \(tempoContext)")
+            performingOnDownbeat: { meter, beatContext in
+                print("DOWNBEAT: \(meter); \(beatContext)")
             },
-            performingOnUpbeat:  { meter, beatContext, tempoContext in
-                print("meter: \(meter); beatContext: \(beatContext); tempoContext: \(tempoContext)")
+            performingOnUpbeat:  { meter, beatContext in
+                print("- \(meter); beatContext: \(beatContext)")
             }
         )
         
         metronome.completion = { unfulfilledExpectation.fulfill() }
         metronome.start()
         
-        waitForExpectations(timeout: 20)
+        waitForExpectations(timeout: 48)
     }
 }
