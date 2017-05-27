@@ -18,29 +18,33 @@ class MetronomeControllerTests: XCTestCase {
         print(metronome)
     }
     
-    func testMeterMetronome() {
-        let metronome = Timeline.metronome(
-            meter: Meter(3,16),
-            tempo: Tempo(112),
-            performingOnDownbeat: { _ in },
-            performingOnUpbeat: { _ in }
-        )
-        print(metronome)
-    }
+//    func testMeterMetronome() {
+//        let metronome = Timeline.metronome(
+//            meter: Meter(3,16),
+//            tempo: Tempo(112),
+//            performingOnDownbeat: { _ in },
+//            performingOnUpbeat: { _ in }
+//        )
+//        print(metronome)
+//    }
     
     func testAccelerando() {
 
         let unfulfilledExpectation = expectation(description: "Accelerando")
         
-        let meters = (0..<4).map { _ in Meter(4,4) }
-        let interp = Tempo.Interpolation(start: Tempo(30), end: Tempo(480), duration: 16/>4)
+        let meters = (0..<16).map { _ in Meter(4,4) }
+        let interp = Tempo.Interpolation(start: Tempo(30), end: Tempo(480), duration: 48/>4)
         let stratum = Tempo.Stratum(tempi: [.zero: interp])
         let structure = Meter.Structure(meters: meters, tempi: stratum)
         
         let metronome = Timeline.metronome(
             structure: structure,
-            performingOnDownbeat: { _ in NSBeep() },
-            performingOnUpbeat: { _ in NSBeep() }
+            performingOnDownbeat: { meter, beatContext, tempoContext in
+                print("meter: \(meter); beatContext: \(beatContext); tempoContext: \(tempoContext)")
+            },
+            performingOnUpbeat:  { meter, beatContext, tempoContext in
+                print("meter: \(meter); beatContext: \(beatContext); tempoContext: \(tempoContext)")
+            }
         )
         
         metronome.completion = { unfulfilledExpectation.fulfill() }
