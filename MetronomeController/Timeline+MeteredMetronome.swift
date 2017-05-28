@@ -13,6 +13,10 @@ import Timeline
 extension Timeline {
     
     /// Information exposed by the `MetronomeInfoCallback` at each beat of a metered metronome.
+    ///
+    /// - TODO: If `BeatContext` regains `meter` as a member, get rid of this, and redefine
+    /// `MetronomeInfoCallback` as `(BeatContext) -> Void`.
+    ///
     public typealias MetronomeInfo = (Meter, BeatContext)
     
     /// Closure exposing the `MetricalInfo` at each beat of a metered metronome.
@@ -77,6 +81,8 @@ extension Timeline {
     ) -> Timeline
     {
         
+        /// - returns: A tuple composed of the offset in seconds and metronome action for the
+        /// the beat at the given `meterOffset` and `beatOffset` within the given `meter`.
         func offsetAndAction(
             meter: Meter,
             meterOffset: MetricalDuration,
@@ -100,7 +106,9 @@ extension Timeline {
             return (secondsOffset, action)
         }
         
-        func offsetsAndActions(meter: Meter, meterOffset: MetricalDuration, tempo: Tempo)
+        /// - returns: An array of tuples composed of the offset in seconds and metronome
+        /// action for each beat in the given `meter` and the given `meterOffset`.
+        func offsetsAndActions(meter: Meter, meterOffset: MetricalDuration)
             -> [(Seconds, Action)]
         {
             return meter.beatOffsets.map { beatOffset in
@@ -112,9 +120,10 @@ extension Timeline {
             }
         }
        
+        // TODO: Expose this as part of the `Meter.Structure` API.
         let meterOffsetsAndMeters = zip(structure.meterOffsets, structure.meters)
         let actions = meterOffsetsAndMeters.flatMap { meterOffset, meter in
-            offsetsAndActions(meter: meter, meterOffset: meterOffset, tempo: Tempo(120))
+            offsetsAndActions(meter: meter, meterOffset: meterOffset)
         }
         
         let timeline = Timeline(identifier: "Metronome", actions: actions)
