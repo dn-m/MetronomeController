@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Collections
 import Rhythm
 import Timeline
 @testable import MetronomeController
@@ -39,11 +40,44 @@ class MetronomeControllerTests: XCTestCase {
         
         let metronome = Timeline.metronome(
             structure: structure,
-            performingOnDownbeat: { meter, beatContext in
-                print("DOWNBEAT: \(meter); \(beatContext)")
+            performingOnDownbeat: { beatContext in
+                NSBeep()
+                print("DOWNBEAT: \(beatContext)")
             },
-            performingOnUpbeat:  { meter, beatContext in
-                print("- \(meter); beatContext: \(beatContext)")
+            performingOnUpbeat:  { beatContext in
+                NSBeep()
+                print("- \(beatContext)")
+            }
+        )
+        
+        metronome.completion = { unfulfilledExpectation.fulfill() }
+        metronome.start()
+        
+        waitForExpectations(timeout: 48)
+    }
+    
+    func testMultipleTempoInterpolations() {
+        
+        let unfulfilledExpectation = expectation(description: "Rollercoaster")
+        
+        let meters = (0..<4).map { _ in Meter(4,4) }
+        let tempi: SortedDictionary<MetricalDuration, Tempo.Interpolation> = [
+            .zero: Tempo.Interpolation(start: Tempo(60), end: Tempo(120), duration: 8/>4),
+            8/>4: Tempo.Interpolation(start: Tempo(120), end: Tempo(30), duration: 8/>4),
+        ]
+        
+        let stratum = Tempo.Stratum(tempi: tempi)
+        let structure = Meter.Structure(meters: meters, tempi: stratum)
+        
+        let metronome = Timeline.metronome(
+            structure: structure,
+            performingOnDownbeat: { beatContext in
+                NSBeep()
+                print("DOWNBEAT: \(beatContext)")
+            },
+            performingOnUpbeat: { beatContext in
+                NSBeep()
+                print("- \(beatContext)")
             }
         )
         

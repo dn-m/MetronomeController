@@ -23,6 +23,4 @@ extension Timeline {
         )
         return Timeline(actions: [(0, action)])
     }
-    
 }
-
