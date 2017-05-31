@@ -67,6 +67,8 @@ extension Timeline {
         let beatContexts = structure.beatContexts
         let beatOffsets = structure.beatOffsets
         
+        print("beat offsets: \(beatOffsets)")
+        
         return Timeline(
             identifier: "Metronome",
             actions: zip(beatOffsets, beatContexts).map { beatOffset, beatContext in

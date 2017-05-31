@@ -19,6 +19,20 @@ class MetronomeControllerTests: XCTestCase {
         print(metronome)
     }
     
+    func testMeterStructure() {
+        let meters = [Meter(4,4)]
+        let builder = Tempo.Stratum.Builder()
+        builder.add(Tempo(120), at: .zero)
+        let stratum = builder.build()
+        let structure = Meter.Structure(meters: meters, tempi: stratum)
+        let metronome = Timeline.metronome(
+            structure: structure,
+            performingOnDownbeat: { _ in },
+            performingOnUpbeat: { _ in }
+        )
+        XCTAssertEqual(metronome.schedule.keys, [0, 0.5, 1, 1.5])
+    }
+    
     func testAccelerando() {
 
         let unfulfilledExpectation = expectation(description: "Accelerando")
