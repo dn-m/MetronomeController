@@ -37,7 +37,7 @@ extension Timeline {
                 let beatContext = BeatContext(
                     meterContext: meterContext,
                     beatOffset: beatOffset,
-                    interpolation: Tempo.Interpolation(
+                    interpolation: Interpolation(
                         start: tempo,
                         end: tempo,
                         duration: meter.metricalDuration
