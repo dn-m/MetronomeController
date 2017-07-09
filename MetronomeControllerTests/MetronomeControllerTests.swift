@@ -20,13 +20,16 @@ class MetronomeControllerTests: XCTestCase {
     }
     
     func testMeterStructure() {
-        let meters = [Meter(4,4)]
-        let builder = Tempo.Stratum.Builder()
-        builder.add(Tempo(120), at: .zero)
-        let stratum = builder.build()
-        let structure = Meter.Structure(meters: meters, tempi: stratum)
+
+        let meters = Meter.Collection([Meter(4,4)])
+        let tempi = Tempo.Stratum.Builder()
+            .addTempo(Tempo(120), at: .zero)
+            .fit(to: meters)
+            .build()
+
         let metronome = Timeline.metronome(
-            structure: structure,
+            meters: meters,
+            tempi: tempi,
             performingOnDownbeat: { _ in },
             performingOnUpbeat: { _ in }
         )
@@ -37,13 +40,17 @@ class MetronomeControllerTests: XCTestCase {
 
         let unfulfilledExpectation = expectation(description: "Accelerando")
         
-        let meters = (0..<16).map { _ in Meter(4,4) }
-        let interp = Interpolation(start: Tempo(30), end: Tempo(480), duration: 64/>4)
-        let stratum = Tempo.Stratum(tempi: [.zero: interp])
-        let structure = Meter.Structure(meters: meters, tempi: stratum)
-        
+        let meters = Meter.Collection((0..<16).map { _ in Meter(4,4) })
+
+        let tempi = Tempo.Stratum.Builder()
+            .addTempo(Tempo(30), at: .zero, interpolating: true)
+            .addTempo(Tempo(480), at: 64/>4)
+            .fit(to: meters)
+            .build()
+
         let metronome = Timeline.metronome(
-            structure: structure,
+            meters: meters,
+            tempi: tempi,
             performingOnDownbeat: { beatContext in
                 NSBeep()
                 print("DOWNBEAT: \(beatContext)")
@@ -64,17 +71,18 @@ class MetronomeControllerTests: XCTestCase {
         
         let unfulfilledExpectation = expectation(description: "Rollercoaster")
         
-        let meters = (0..<4).map { _ in Meter(4,4) }
-        let tempi: SortedDictionary<MetricalDuration, Interpolation> = [
-            .zero: Interpolation(start: Tempo(60), end: Tempo(120), duration: 8/>4),
-            8/>4: Interpolation(start: Tempo(120), end: Tempo(30), duration: 8/>4),
-        ]
-        
-        let stratum = Tempo.Stratum(tempi: tempi)
-        let structure = Meter.Structure(meters: meters, tempi: stratum)
+        let meters = Meter.Collection((0..<4).map { _ in Meter(4,4) })
+
+        let tempi = Tempo.Stratum.Builder()
+            .addTempo(Tempo(60), at: .zero, interpolating: true)
+            .addTempo(Tempo(120), at: 8/>4, interpolating: true)
+            .addTempo(Tempo(30), at: 16/>4, interpolating: true)
+            .fit(to: meters)
+            .build()
         
         let metronome = Timeline.metronome(
-            structure: structure,
+            meters: meters,
+            tempi: tempi,
             performingOnDownbeat: { beatContext in
                 NSBeep()
                 print("DOWNBEAT: \(beatContext)")
@@ -95,17 +103,18 @@ class MetronomeControllerTests: XCTestCase {
         
         let unfulfilledExpectation = expectation(description: "Rollercoaster")
         
-        let meters = (0..<4).map { _ in Meter(4,4) }
-        let tempi: SortedDictionary<MetricalDuration, Interpolation> = [
-            .zero: Interpolation(start: Tempo(60), end: Tempo(120), duration: 8/>4),
-            8/>4: Interpolation(start: Tempo(30), end: Tempo(60), duration: 8/>4),
-        ]
-        
-        let stratum = Tempo.Stratum(tempi: tempi)
-        let structure = Meter.Structure(meters: meters, tempi: stratum)
+        let meters = Meter.Collection((0..<4).map { _ in Meter(4,4) })
+        let tempi = Tempo.Stratum.Builder()
+            .addTempo(Tempo(60), at: .zero, interpolating: true)
+            .addTempo(Tempo(120), at: 8/>4, interpolating: true)
+            .addTempo(Tempo(30), at: 16/>4, interpolating: true)
+            .addTempo(Tempo(60), at: 24/>4, interpolating: false)
+            .fit(to: meters)
+            .build()
         
         let metronome = Timeline.metronome(
-            structure: structure,
+            meters: meters,
+            tempi: tempi,
             performingOnDownbeat: { beatContext in
                 NSBeep()
                 print("DOWNBEAT: \(beatContext)")
