@@ -66,6 +66,7 @@ extension Timeline {
             identifier: "Metronome",
             actions: meters.beatContexts.map { beatContext in
                 print("beat context: \(beatContext)")
+
                 let secondsOffset = tempi.secondsOffset(for: beatContext.metricalOffset)
                 let closure = beatContext.offset == .zero ? onDownbeat : onUpbeat
                 let action = Timeline.Action(kind: .atomic, body: { closure(beatContext) })
