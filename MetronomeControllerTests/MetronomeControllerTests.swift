@@ -8,6 +8,7 @@
 
 import XCTest
 import Collections
+import ArithmeticTools
 import Rhythm
 import Timeline
 @testable import MetronomeController
@@ -129,5 +130,13 @@ class MetronomeControllerTests: XCTestCase {
         metronome.start()
         
         waitForExpectations(timeout: 48)
+    }
+
+    func testSecondsOffsetInIntepolationWithMeterCollectionWithOffset() {
+        // Create Meter.Collection
+        let first = Meter.Fragment(Meter(4,4), in: Fraction(2,4) ..< Fraction(4,4))
+        let rest = (0..<4).map { _ in Meter.Fragment(Meter(4,4)) }
+        let meters = Meter.Collection(first + rest)
+        dump(meters.beatContexts.map { $0.metricalOffset })
     }
 }
